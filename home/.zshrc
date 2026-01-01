@@ -64,7 +64,9 @@ zinit light romkatv/powerlevel10k
 # Custom Aliases #
 ##################
 alias ls='lsd'
+alias gll='git log --graph --all --pretty=format:"%C(auto)%h %d %C(white)%s %C(dim white)- %an, %ar"'
 
 
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+export PATH=$PATH:~/Android/Sdk/emulator:~/Android/Sdk/platform-tools

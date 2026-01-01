@@ -63,7 +63,7 @@ input {
     }
 
     // Uncomment this to make the mouse warp to the center of newly focused windows.
-    warp-mouse-to-focus
+    // warp-mouse-to-focus
 
     // Focus windows and outputs automatically when moving the mouse into them.
     // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
@@ -136,6 +136,10 @@ output "HDMI-A-1" {
     // If the position is unset or results in an overlap, the output is instead placed
     // automatically.
     position x=1920 y=0
+}
+
+environment {
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
 }
 
 // Settings that influence how windows are positioned and sized.
@@ -343,7 +347,13 @@ animations {
     // off
 
     // Slow down all animations by this factor. Values below 1 speed them up instead.
-    slowdown 0.5
+    slowdown 0.2
+}
+
+gestures {
+    hot-corners {
+        off
+    }
 }
 
 // Window rules let you adjust behavior for individual windows.
@@ -396,7 +406,7 @@ binds {
     // "Mod" is a special modifier equal to Super when running on a TTY, and to Alt
     // when running as a winit window.
     //
-    // Most actions that you can bind here can also be invoked programmatically with
+    // Most actisoundons that you can bind here can also be invoked programmatically with
     // `niri msg action do-something`.
 
     // Mod-Shift-/, which is usually the same as Mod-?,
@@ -407,6 +417,9 @@ binds {
     Mod+Return hotkey-overlay-title="Open a Terminal: foot" { spawn "foot"; }
     Mod+D hotkey-overlay-title="Run an Application: rofi" { spawn "rofi" "-show" "drun" "-show-icons"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
+    Mod+Backslash hotkey-overlay-title="Screenshot" { spawn "./dotfiles/shscript/grim/grim-select.sh"; }
+    Mod+Shift+Backslash hotkey-overlay-title="Github key copy" { spawn "./githubKey.sh"; }
+
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
