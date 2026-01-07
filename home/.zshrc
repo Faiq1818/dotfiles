@@ -68,5 +68,7 @@ alias gll='git log --graph --all --pretty=format:"%C(auto)%h %d %C(white)%s %C(d
 
 
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/go/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH=$PATH:~/Android/Sdk/emulator:~/Android/Sdk/platform-tools
+export GIT_EDITOR=nvim
