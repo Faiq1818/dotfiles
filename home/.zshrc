@@ -6,12 +6,30 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 ###########################
-# Zsh History and Keybind #
+# Zsh History #
 ###########################
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
+
+############
+# vim mode #
+############
 bindkey -v
+# export KEYTIMEOUT=1 # Reduce delay for mode switching
+# function zle-keymap-select {
+#    if [[ $KEYMAP == vicmd ]]; then
+#        echo -ne '\e[1 q' # Block cursor for normal mode
+#    else
+#        echo -ne '\e[5 q' # Beam cursor for insert mode
+#    fi
+# }
+# zle -N zle-keymap-select
+# echo -ne '\e[5 q'
+# precmd() {
+#    echo -ne '\e[5 q'
+# }
+
 
 #####################
 # Completion System #
@@ -59,6 +77,8 @@ zinit load zdharma-continuum/history-search-multi-word
 zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light romkatv/powerlevel10k
+zinit ice depth=1
+zinit light jeffreytse/zsh-vi-mode
 
 ##################
 # Custom Aliases #
