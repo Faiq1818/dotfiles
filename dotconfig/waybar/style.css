@@ -3,6 +3,12 @@
     font-size: 13px;
 }
 
+/* custom */
+#custom-swaync {
+    color: #ffffff;
+    padding-right: 15px;
+}
+
 window#waybar {
     background-color: rgba(43, 48, 59, 1);
     color: #ffffff;
