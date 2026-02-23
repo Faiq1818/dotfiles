@@ -16,20 +16,6 @@ SAVEHIST=1000
 # vim mode #
 ############
 bindkey -v
-# export KEYTIMEOUT=1 # Reduce delay for mode switching
-# function zle-keymap-select {
-#    if [[ $KEYMAP == vicmd ]]; then
-#        echo -ne '\e[1 q' # Block cursor for normal mode
-#    else
-#        echo -ne '\e[5 q' # Beam cursor for insert mode
-#    fi
-# }
-# zle -N zle-keymap-select
-# echo -ne '\e[5 q'
-# precmd() {
-#    echo -ne '\e[5 q'
-# }
-
 
 #####################
 # Completion System #
@@ -86,6 +72,8 @@ zinit light jeffreytse/zsh-vi-mode
 alias ls='lsd'
 alias gll='git log --graph --all --pretty=format:"%C(auto)%h %d %C(white)%s %C(dim white)- %an, %ar"'
 
+alias dl='docker logs'
+alias dcra='sudo docker container rm -f $(sudo docker ps -aq)'
 
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
