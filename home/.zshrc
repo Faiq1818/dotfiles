@@ -66,6 +66,17 @@ zinit light romkatv/powerlevel10k
 zinit ice depth=1
 zinit light jeffreytse/zsh-vi-mode
 
+######################
+# Yazi Configuration #
+######################
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	command yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
+
 ##################
 # Custom Aliases #
 ##################
@@ -74,9 +85,11 @@ alias gll='git log --graph --all --pretty=format:"%C(auto)%h %d %C(white)%s %C(d
 
 alias dl='docker logs'
 alias dcra='sudo docker container rm -f $(sudo docker ps -aq)'
+alias dcla='docker container ls -a'
 
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH=$PATH:~/Android/Sdk/emulator:~/Android/Sdk/platform-tools
+export PATH="$HOME/.npm-global/bin:$PATH"
 export GIT_EDITOR=nvim
